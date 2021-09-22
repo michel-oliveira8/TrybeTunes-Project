@@ -45,14 +45,6 @@ export default class Search extends Component {
   render() {
     const { name, loading, albumList, returnApi, artist } = this.state;
     const numMinCaracter = 2;
-    // if (loading) {
-    //   return (
-    //     <div>
-    //       <Header />
-    //       <Loading />
-    //     </div>
-    //   );
-    // }
     return (
       <div data-testid="page-search">
         <h1>Trybe Tunes</h1>
