@@ -32,10 +32,10 @@ export default class Header extends Component {
     if (loading) return <Loading />;
     return (
       <header data-testid="header-component">
-        <h2 data-testid="header-user-name">{ user }</h2>
         <Link to="/search" data-testid="link-to-search">Pesquisar</Link>
         <Link to="/favorites" data-testid="link-to-favorites">Favoritos</Link>
         <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
+        <h2 data-testid="header-user-name">{ user }</h2>
       </header>
     );
   }
