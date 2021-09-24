@@ -10,7 +10,7 @@ export default class Album extends Component {
     this.state = {
       artist: '',
       collection: '',
-      music: [],
+      playlist: [],
     };
 
     this.handleAlbum = this.handleAlbum.bind(this);
@@ -22,30 +22,28 @@ export default class Album extends Component {
 
   async handleAlbum() {
     const { match: { params: { id } } } = this.props;
-    console.log(id);
-
     const musicAlbum = await getMusics(id);
     const delFirstTrack = musicAlbum.slice(1, musicAlbum.length);
     this.setState({
       artist: musicAlbum[0].artistName,
       collection: musicAlbum[0].collectionName,
-      music: delFirstTrack,
+      playlist: delFirstTrack,
     });
   }
 
   render() {
-    const { artist, collection, music } = this.state;
+    const { artist, collection, playlist } = this.state;
     return (
       <div data-testid="page-album">
         Album
         <Header />
         <p data-testid="artist-name">{ artist }</p>
         <p data-testid="album-name">{ collection }</p>
-        {music.map(({ trackId, previewUrl, trackName }) => (<MusicCard
-          key={ trackId }
-          previewUrl={ previewUrl }
-          trackName={ trackName }
-        />))}
+        {playlist.map((music) => (
+          <MusicCard
+            key={ music.trackId }
+            music={ music }
+          />))}
       </div>
     );
   }
