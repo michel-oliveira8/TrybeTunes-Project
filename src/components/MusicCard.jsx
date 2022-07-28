@@ -46,14 +46,13 @@ export default class MusicCard extends Component {
     if (loading) return <Loading />;
     return (
       <div>
-        <p>{ trackName }</p>
+        <p className="track-name">{ trackName }</p>
         <audio data-testid="audio-component" src={ previewUrl } controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
           <code>audio</code>
         </audio>
         <label htmlFor={ trackId } data-testid={ `checkbox-music-${trackId}` }>
-          Favorita
           <input
             type="checkbox"
             name="favorite"

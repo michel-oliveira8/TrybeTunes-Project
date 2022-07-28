@@ -35,16 +35,16 @@ export default class Album extends Component {
     const { artist, collection, playlist } = this.state;
     return (
       <div data-testid="page-album">
-        Album
         <Header />
-        <p data-testid="artist-name">{ artist }</p>
-        <p data-testid="album-name">{ collection }</p>
+        <p data-testid="artist-name" className="album-name-artist">{ artist }</p>
+        <p data-testid="album-name" className="album-name">{ collection }</p>
         {playlist.map((music) => (
           <MusicCard
             key={ music.trackId }
             music={ music }
           />))}
       </div>
+
     );
   }
 }

@@ -39,21 +39,26 @@ export default class Login extends Component {
     if (loading) return <Loading />;
     if (redirect) return <Redirect to="/search" />;
     return (
-      <div data-testid="page-login">
-        <form>
-          Login:
+      <div data-testid="page-login" className="main-login">
+        <form className="main">
+          <p className="text-trybetunes">TrybeTunes</p>
+          <div className="text-name">
+            Digite seu nome:
+          </div>
           <input
             name="username"
             data-testid="login-name-input"
             type="text"
             value={ username }
             onChange={ this.handleChange }
+            className="input-name"
           />
           <button
             type="button"
             data-testid="login-submit-button"
             disabled={ username.length < numberMinCaracteres }
             onClick={ this.handleClick }
+            className="button-login"
           >
             Entrar
 

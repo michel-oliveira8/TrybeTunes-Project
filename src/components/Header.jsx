@@ -31,11 +31,33 @@ export default class Header extends Component {
     const { user, loading } = this.state;
     if (loading) return <Loading />;
     return (
-      <header data-testid="header-component">
-        <Link to="/search" data-testid="link-to-search">Pesquisar</Link>
-        <Link to="/favorites" data-testid="link-to-favorites">Favoritos</Link>
-        <Link to="/profile" data-testid="link-to-profile">Perfil</Link>
-        <h2 data-testid="header-user-name">{ user }</h2>
+      <header data-testid="header-component" className="header">
+        <Link
+          to="/search"
+          data-testid="link-to-search"
+          className="search"
+        >
+          Pesquisar
+        </Link>
+        <Link
+          to="/favorites"
+          data-testid="link-to-favorites"
+          className="favorites"
+        >
+          Favoritos
+        </Link>
+        <Link
+          to="/profile"
+          data-testid="link-to-profile"
+          className="profile"
+        >
+          Perfil
+        </Link>
+        <h2 data-testid="header-user-name" className="user">
+          Oi,
+          {' '}
+          { user }
+        </h2>
       </header>
     );
   }

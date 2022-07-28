@@ -6,15 +6,16 @@ export default class ListAlbum extends Component {
   render() {
     const { artistName, collectionId, artworkUrl100, collectionName } = this.props;
     return (
-      <div>
-        <img src={ artworkUrl100 } alt="capaDoAlbum" />
+      <div className="retangle">
+        <img src={ artworkUrl100 } alt="capaDoAlbum" className="picture-album" />
         <Link
           to={ `/album/${collectionId}` }
           data-testid={ `link-to-album-${collectionId}` }
+          className="collection-name"
         >
           { collectionName }
         </Link>
-        <p>{ artistName }</p>
+        <p className="artist-name">{ artistName }</p>
       </div>
     );
   }

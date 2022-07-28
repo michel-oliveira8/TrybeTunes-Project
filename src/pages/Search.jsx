@@ -46,8 +46,7 @@ export default class Search extends Component {
     const { name, loading, albumList, returnApi, artist } = this.state;
     const numMinCaracter = 2;
     return (
-      <div data-testid="page-search">
-        <h1>Trybe Tunes</h1>
+      <div data-testid="page-search" className="main-home">
         <Header />
         { loading ? <Loading />
           : (
@@ -58,29 +57,44 @@ export default class Search extends Component {
                 name="artistName"
                 placeholder="Nome do artista"
                 onChange={ this.handleInput }
+                className="input-artist-name"
               />
               <button
                 type="button"
                 data-testid="search-artist-button"
                 disabled={ name.length < numMinCaracter }
                 onClick={ this.handleClick }
+                className="button-search"
               >
                 Pesquisar
               </button>
             </form>
           )}
-        {returnApi && albumList.length === 0 ? <p>Nenhum álbum foi encontrado</p> : null}
-        {albumList.length !== 0 ? <p>{`Resultado de álbuns de: ${artist}`}</p>
+        {returnApi && albumList.length === 0 ? <p
+          className="result-albums"
+        >
+          Poxa, nenhum álbum foi encontrado!
+          {/* eslint-disable-next-line */}
+        </p> : null}
+        {albumList.length !== 0 ? <p
+          className="result-albums"
+        >
+          {`Resultado de álbuns de: ${artist}`}
+          {/* eslint-disable-next-line */}
+        </p>
           : null }
-        {albumList.map((
-          { artistName, collectionId, artworkUrl100, collectionName },
-        ) => (<ListAlbum
-          key={ collectionId }
-          artistName={ artistName }
-          collectionId={ collectionId }
-          artworkUrl100={ artworkUrl100 }
-          collectionName={ collectionName }
-        />))}
+        <div className="acima-retangle">
+          {albumList.map((
+            { artistName, collectionId, artworkUrl100, collectionName },
+          ) => (<ListAlbum
+            key={ collectionId }
+            artistName={ artistName }
+            collectionId={ collectionId }
+            artworkUrl100={ artworkUrl100 }
+            collectionName={ collectionName }
+          />))}
+        </div>
+
       </div>
     );
   }
