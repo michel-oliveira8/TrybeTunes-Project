@@ -25,5 +25,5 @@ Neste projeto criado o TrybeTunes, a partir de uma API do Itunes(Apple), que con
 
  - `npm start`
 
+## Executar o projeto:
  - `npm start`
-
